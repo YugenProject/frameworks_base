@@ -1676,6 +1676,15 @@ public final class SystemServer implements Dumpable {
                 t.traceEnd();
             }
 
+            t.traceBegin("StartPowerInsightService");
+            try {
+                ServiceManager.addService(Context.POWER_INSIGHT_SERVICE,
+                        new com.android.server.powerinsight.PowerInsightService(mSystemContext));
+            } catch (Throwable e) {
+                reportWtf("starting PowerInsightService", e);
+            }
+            t.traceEnd();
+
             // Records errors and logs, for example wtf()
             // Currently this service indirectly depends on SettingsProvider so do this after
             // InstallSystemProviders.

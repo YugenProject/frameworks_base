@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 kenway214
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- PowerInsight -->
+    <java-symbol type="drawable" name="ic_power_insight_notify" />
+</resources>
