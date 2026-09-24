@@ -7412,6 +7412,36 @@ public final class Settings {
         // com.android.providers.settings.SettingsProtoDumpUtil#dumpProtoSecureSettingsLocked.
 
         /**
+         * @hide
+         */
+        @Readable
+        public static final String ENABLE_TASKBAR = "enable_taskbar";
+
+        /**
+         * @hide
+         */
+        @Readable
+        public static final String GESTURE_NAVBAR_AUTO_HIDE = "gesture_navbar_auto_hide";
+
+        /**
+         * @hide
+         */
+        @Readable
+        public static final String GESTURE_NAVBAR_HEIGHT_MODE = "gesture_navbar_height_mode";
+
+        /**
+         * @hide
+         */
+        @Readable
+        public static final String GESTURE_NAVBAR_LENGTH_MODE = "gesture_navbar_length_mode";
+
+        /**
+         * @hide
+         */
+        @Readable
+        public static final String RECENTS_LOCKED_TASKS = "recents_locked_tasks";
+
+        /**
          * The content:// style URL for this table
          */
         public static final Uri CONTENT_URI =
