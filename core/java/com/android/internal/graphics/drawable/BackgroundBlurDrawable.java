@@ -170,16 +170,12 @@ public final class BackgroundBlurDrawable extends Drawable {
         }
     }
 
-    /**
-     * Requests a render engine blur material.
-     *
-     * <p>Lineage's render engine has a single blur material, so the value is only recorded
-     * here. PenguinOS's Liquid Glass materials (11 for the dock, 12 for the navigator glass)
-     * arrive with the Liquid Glass port; until then callers such as Launcher3's
-     * {@code PenguinDockGlass} get the ordinary frost.
-     */
     public void setMaterial(int material) {
-        mMaterial = material;
+        if (mMaterial != material) {
+            mMaterial = material;
+            invalidateSelf();
+            mAggregator.onBlurDrawableUpdated(this);
+        }
     }
 
     /**
@@ -520,6 +516,7 @@ public final class BackgroundBlurDrawable extends Drawable {
         public final float cornerRadiusBRY;
         public final float alpha;
         public final Rect rect;
+        public final int material;
 
         BlurRegion(BackgroundBlurDrawable drawable) {
             alpha = drawable.mAlpha / 255f;
@@ -533,13 +530,14 @@ public final class BackgroundBlurDrawable extends Drawable {
             cornerRadiusBRX = drawable.mCornerRadiusBRX;
             cornerRadiusBRY = drawable.mCornerRadiusBRY;
             rect = drawable.mRect;
+            material = drawable.mMaterial;
         }
 
         /**
          * Serializes this class into a float array that's more JNI friendly.
          */
         float[] toFloatArray() {
-            final float[] floatArray = new float[14];
+            final float[] floatArray = new float[15];
             floatArray[0] = blurRadius;
             floatArray[1] = alpha;
             floatArray[2] = rect.left;
@@ -554,6 +552,7 @@ public final class BackgroundBlurDrawable extends Drawable {
             floatArray[11] = cornerRadiusBLY;
             floatArray[12] = cornerRadiusBRX;
             floatArray[13] = cornerRadiusBRY;
+            floatArray[14] = material;
             return floatArray;
         }
 
