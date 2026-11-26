@@ -7418,6 +7418,22 @@ public final class Settings {
         public static final String ENABLE_TASKBAR = "enable_taskbar";
 
         /**
+         * Which navigation bar layout to use
+         * 0 = Normal (Default)
+         * 1 = Compact
+         * 2 = Left-leaning
+         * 3 = Right-leaning
+         * @hide
+         */
+        public static final String NAVBAR_LAYOUT_MODE = "navbar_layout_mode";
+
+        /**
+         * boolean value. toggles swipe up hint in gestural nav mode
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_HINT = "navigation_bar_hint";
+
+        /**
          * @hide
          */
         @Readable
