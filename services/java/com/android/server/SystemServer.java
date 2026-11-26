@@ -212,6 +212,7 @@ import com.android.server.net.NetworkManagementService;
 import com.android.server.net.NetworkPolicyManagerService;
 import com.android.server.net.watchlist.NetworkWatchlistService;
 import com.android.server.notification.NotificationManagerService;
+import com.android.server.obscura.ObscuraService;
 import com.android.server.oemlock.OemLockService;
 import com.android.server.om.OverlayManagerService;
 import com.android.server.os.BugreportManagerService;
@@ -3416,6 +3417,7 @@ public final class SystemServer implements Dumpable {
         // initialization.
         mActivityManagerService.systemReady(() -> {
             Slog.i(TAG, "Making services ready");
+            ObscuraService.systemReady(mSystemContext);
             t.traceBegin("StartActivityManagerReadyPhase");
             mSystemServiceManager.startBootPhase(t, SystemService.PHASE_ACTIVITY_MANAGER_READY);
             t.traceEnd();
