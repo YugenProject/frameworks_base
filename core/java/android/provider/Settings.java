@@ -4415,6 +4415,36 @@ public final class Settings {
         // NOTE: If you add new settings here, be sure to add them to
         // com.android.providers.settings.SettingsProtoDumpUtil#dumpProtoSystemSettingsLocked.
 
+        /**
+         * @hide
+         */
+        @Readable
+        public static final String ENABLE_TASKBAR = "enable_taskbar";
+
+        /**
+         * @hide
+         */
+        @Readable
+        public static final String GESTURE_NAVBAR_AUTO_HIDE = "gesture_navbar_auto_hide";
+
+        /**
+         * @hide
+         */
+        @Readable
+        public static final String GESTURE_NAVBAR_HEIGHT_MODE = "gesture_navbar_height_mode";
+
+        /**
+         * @hide
+         */
+        @Readable
+        public static final String GESTURE_NAVBAR_LENGTH_MODE = "gesture_navbar_length_mode";
+
+        /**
+         * @hide
+         */
+        @Readable
+        public static final String RECENTS_LOCKED_TASKS = "recents_locked_tasks";
+
         private static final float DEFAULT_FONT_SCALE = 1.0f;
         private static final int DEFAULT_FONT_WEIGHT = 0;
 
@@ -7412,12 +7442,6 @@ public final class Settings {
         // com.android.providers.settings.SettingsProtoDumpUtil#dumpProtoSecureSettingsLocked.
 
         /**
-         * @hide
-         */
-        @Readable
-        public static final String ENABLE_TASKBAR = "enable_taskbar";
-
-        /**
          * Which navigation bar layout to use
          * 0 = Normal (Default)
          * 1 = Compact
@@ -7432,30 +7456,6 @@ public final class Settings {
          * @hide
          */
         public static final String NAVIGATION_BAR_HINT = "navigation_bar_hint";
-
-        /**
-         * @hide
-         */
-        @Readable
-        public static final String GESTURE_NAVBAR_AUTO_HIDE = "gesture_navbar_auto_hide";
-
-        /**
-         * @hide
-         */
-        @Readable
-        public static final String GESTURE_NAVBAR_HEIGHT_MODE = "gesture_navbar_height_mode";
-
-        /**
-         * @hide
-         */
-        @Readable
-        public static final String GESTURE_NAVBAR_LENGTH_MODE = "gesture_navbar_length_mode";
-
-        /**
-         * @hide
-         */
-        @Readable
-        public static final String RECENTS_LOCKED_TASKS = "recents_locked_tasks";
 
         /**
          * The content:// style URL for this table
