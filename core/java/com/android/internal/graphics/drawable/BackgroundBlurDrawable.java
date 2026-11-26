@@ -65,6 +65,7 @@ public final class BackgroundBlurDrawable extends Drawable {
     // Confined to UiThread. The values are copied into a BlurRegion, which lives on
     // RenderThread to avoid interference with UiThread updates.
     private int mBlurRadius;
+    private int mMaterial;
     private float mCornerRadiusTLX;
 
     private float mCornerRadiusTLY;
@@ -167,6 +168,18 @@ public final class BackgroundBlurDrawable extends Drawable {
             invalidateSelf();
             mAggregator.onBlurDrawableUpdated(this);
         }
+    }
+
+    /**
+     * Requests a render engine blur material.
+     *
+     * <p>Lineage's render engine has a single blur material, so the value is only recorded
+     * here. PenguinOS's Liquid Glass materials (11 for the dock, 12 for the navigator glass)
+     * arrive with the Liquid Glass port; until then callers such as Launcher3's
+     * {@code PenguinDockGlass} get the ordinary frost.
+     */
+    public void setMaterial(int material) {
+        mMaterial = material;
     }
 
     /**
